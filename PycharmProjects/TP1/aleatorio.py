@@ -23,7 +23,7 @@ def aleatorio():
 			des = ori
 			while (des == ori) or (des in grafo.adyacentes[ori]):
 				des = random.randint(0,v-1)
-			grafo.agregarArista(int(ori), int(des))
+			grafo.agregarArista(ori, des)
 		
 		print("Numero de vertices: " + str(grafo.obtenerNumeroDeVertices()))
 		print("Numero de aristas: " + str(grafo.obtenerNumeroDeAristas()))	
