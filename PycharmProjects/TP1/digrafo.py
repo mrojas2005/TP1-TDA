@@ -1,5 +1,4 @@
 
-
 class Digrafo:
     """Grafo dirigido con un número fijo de vértices.
 

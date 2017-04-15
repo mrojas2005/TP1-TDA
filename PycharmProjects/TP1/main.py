@@ -1,17 +1,26 @@
 import digrafo
 
-def main():
+def cargargrafo():
 
-    grafo = digrafo.Digrafo(5)
+    #Modificacion del archivo main para cargar grafo desde archivo del TP
 
-    print(grafo.obtenerNumeroDeVertices())
-    print(grafo.obtenerNumeroDeAristas())
+    #-----------------------
+    archi = open('d1.txt','r')
 
-    grafo.agregarArista(1, 0)
-    grafo.agregarArista(0, 2)
-    grafo.agregarArista(2, 1)
-    grafo.agregarArista(0, 3)
-    grafo.agregarArista(3, 4)
+    cant_v = int(archi.readline())
+    cant_a = int(archi.readline())
+
+    grafo = digrafo.Digrafo(cant_v)
+
+    for i in range(cant_a):
+        ori, des = archi.readline().split(" ")
+        grafo.agregarArista(int(ori), int(des))
+
+    archi.close()
+    #------------------------
+
+    print("El grafo G tiene " + str(grafo.obtenerNumeroDeVertices()) + " vertices")
+    print("El grafo G tiene " + str(grafo.obtenerNumeroDeAristas()) + " aristas")
 
     print("El grafo G es: ")
     print(grafo.obtenerGrafo())
@@ -24,4 +33,4 @@ def main():
 
     print("El grafo G tiene " + str(grafo.obtenerNumeroDeCFC()) + " componentes fuertemente conexas")
 
-main()
+cargargrafo()
